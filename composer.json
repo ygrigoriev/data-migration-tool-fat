@@ -1,0 +1,23 @@
+{
+    "name": "magento/data-migration-tool-fat",
+    "type": "library",
+    "description": "Functional testing library for Magento Data Migration Tool",
+    "require": {
+        "php": "~5.6.0|7.0.2|~7.0.6",
+        "magento/mtf": "1.0.0-rc43",
+        "phpunit/phpunit": "4.1.0",
+        "phpunit/phpunit-selenium": ">=1.2"
+    },
+    "suggest": {
+        "netwing/selenium-server-standalone": "dev-master",
+        "facebook/webdriver": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Magento\\Mtf\\": ["dev/tests/functional/lib/Magento/Mtf/", "dev/tests/functional/testsuites/Magento/Mtf/", "dev/tests/functional/generated/Magento/Mtf/"],
+            "Magento\\DataMigrationTool\\Test\\": ["magento/data-migration-tool-fat/tests/app/Magento/DataMigrationTool/Test"],
+            "Magento\\": ["dev/tests/functional/generated/Magento", "dev/tests/functional/tests/app/Magento"],
+            "Test\\": "magento/data-migration-tool-fat/generated/Test"
+        }
+    }
+}

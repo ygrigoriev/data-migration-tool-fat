@@ -1,0 +1,5 @@
+.idea
+/var
+/composer.lock
+phpunit.xml
+credentials.xml
