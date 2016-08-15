@@ -15,6 +15,7 @@
     "autoload": {
         "psr-4": {
             "Magento\\DataMigrationTool\\Test\\": ["tests/app/Magento/DataMigrationTool/Test"],
+            "Magento\\Mtf\\": ["/../../../vendor/magento/mtf/Magento/Mtf"],
             "Magento\\": ["/../../../dev/tests/functional/generated/Magento", "/../../../dev/tests/functional/tests/app/Magento"],
             "Test\\": "/../../../dev/tests/functional/generated/Test"
         }
