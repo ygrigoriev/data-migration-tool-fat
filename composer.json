@@ -14,10 +14,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Magento\\Mtf\\": ["dev/tests/functional/lib/Magento/Mtf/", "dev/tests/functional/testsuites/Magento/Mtf/", "dev/tests/functional/generated/Magento/Mtf/"],
-            "Magento\\DataMigrationTool\\Test\\": ["magento/data-migration-tool-fat/tests/app/Magento/DataMigrationTool/Test"],
-            "Magento\\": ["dev/tests/functional/generated/Magento", "dev/tests/functional/tests/app/Magento"],
-            "Test\\": "magento/data-migration-tool-fat/generated/Test"
+            "Magento\\DataMigrationTool\\Test\\": ["tests/app/Magento/DataMigrationTool/Test"],
+            "Magento\\": ["/../../../dev/tests/functional/generated/Magento", "/../../../dev/tests/functional/tests/app/Magento"],
+            "Test\\": "/../../../dev/tests/functional/generated/Test"
         }
     }
 }
