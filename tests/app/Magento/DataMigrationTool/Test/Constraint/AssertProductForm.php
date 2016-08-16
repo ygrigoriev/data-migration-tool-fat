@@ -6,43 +6,26 @@
 
 namespace Magento\DataMigrationTool\Test\Constraint;
 
-use Magento\DataMigrationTool\Test\Page\Adminhtml\CatalogProductEdit;
-use Magento\DataMigrationTool\Test\Page\Adminhtml\CatalogProductIndex;
-use Magento\Mtf\Constraint\AbstractAssertForm;
-use Magento\Mtf\Fixture\FixtureInterface;
+//use Magento\Catalog\Test\Page\Adminhtml\CatalogProductEdit;
+//use Magento\Catalog\Test\Page\Adminhtml\CatalogProductIndex;
+//use Magento\Mtf\Fixture\FixtureInterface;
+
+//use Magento\DataMigrationTool\Test\Page\Adminhtml\MigrationProductEdit;
+use Magento\Catalog\Test\Constraint\AssertProductForm as AsertProductFormCatalog;
 
 /**
  * Class AssertProductForm
  */
-class AssertProductForm extends AbstractAssertForm
+class AssertProductForm extends AsertProductFormCatalog
 {
     /**
-     * List skipped fixture fields in verify
-     *
-     * @var array
+     * @var MigrationProductEdit
      */
-    protected $skippedFixtureFields = [
-        'id',
-        'checkout_data',
-    ];
-
-    /**
-     * Sort fields for fixture and form data.
-     *
-     * @var array
-     */
-    protected $sortFields = [
-        'cross_sell_products::id',
-        'up_sell_products::id',
-        'related_products::id',
-    ];
-
-    /**
-     * Formatting options for array values
-     *
-     * @var array
-     */
-    protected $specialArray = [];
+    protected $migrationProductEdit;
+//
+//    public function __construct(MigrationProductEdit $migrationProductEdit) {
+//        $this->migrationProductEdit = $migrationProductEdit;
+//    }
 
     /**
      * Assert form data equals fixture data
@@ -50,99 +33,41 @@ class AssertProductForm extends AbstractAssertForm
      * @param FixtureInterface $product
      * @param CatalogProductIndex $productGrid
      * @param CatalogProductEdit $productPage
+     * @param MigrationProductEdit $migrationProductEdit
      * @return void
      */
-    public function processAssert(
-        FixtureInterface $product,
-        CatalogProductIndex $productGrid,
-        CatalogProductEdit $productPage
-    ) {
-        $filter = ['sku' => $product->getSku()];
-        $productGrid->open();
-        $productGrid->getProductGrid()->searchAndOpen($filter);
-
-        $productData = $product->getData();
-        if ($product->hasData('custom_options')) {
-            $customOptionsSource = $product->getDataFieldConfig('custom_options')['source'];
-            $productData['custom_options'] = $customOptionsSource->getCustomOptions();
-        }
-        $fixtureData = $this->prepareFixtureData($productData, $this->sortFields);
-        $formData = $this->prepareFormData($productPage->getProductForm()->getData($product), $this->sortFields);
-        $error = $this->verifyData($fixtureData, $formData);
-        \PHPUnit_Framework_Assert::assertTrue(empty($error), $error);
-    }
-
-    /**
-     * Prepares fixture data for comparison
-     *
-     * @param array $data
-     * @param array $sortFields [optional]
-     * @return array
-     */
-    protected function prepareFixtureData(array $data, array $sortFields = [])
-    {
-        $data = array_diff_key($data, array_flip($this->skippedFixtureFields));
-
-        if (isset($data['website_ids']) && !is_array($data['website_ids'])) {
-            $data['website_ids'] = [$data['website_ids']];
-        }
-
-        if (!empty($this->specialArray)) {
-            $data = $this->prepareSpecialPriceArray($data);
-        }
-
-        if (isset($data['price'])) {
-            $data['price'] = number_format($data['price'], 2);
-        }
-
-        foreach ($sortFields as $path) {
-            $data = $this->sortDataByPath($data, $path);
-        }
-
-        return $data;
-    }
+//    public function processAssert(
+//        FixtureInterface $product,
+//        CatalogProductIndex $productGrid,
+//        CatalogProductEdit $productPage,
+//        MigrationProductEdit $migrationProductEdit
+//    ) {
+//        $filter = ['sku' => $product->getSku()];
+//
+//        $productGrid->open();
+//        $productGrid->getProductGrid()->searchAndOpen($filter);
+//
+//        $productData = $product->getData();
+//        if ($product->hasData('custom_options')) {
+//            $customOptionsSource = $product->getDataFieldConfig('custom_options')['source'];
+//            $productData['custom_options'] = $customOptionsSource->getCustomOptions();
+//        }
+//        $fixtureData = $this->prepareFixtureData($productData, $this->sortFields);
+//        // inject MigrationProductEdit instead of CatalogProductEdit for using not Default attribute set
+//        $formData = $this->prepareFormData(
+//            $migrationProductEdit->getProductForm()->getData($product),
+//            $this->sortFields
+//        );
+//        $error = $this->verifyData($fixtureData, $formData);
+//        \PHPUnit_Framework_Assert::assertTrue(empty($error), $error);
+//    }
 
     /**
-     * Prepare special price array for product
-     *
-     * @param array $fields
-     * @return array
+     * @return MigrationProductEdit
      */
-    protected function prepareSpecialPriceArray(array $fields)
-    {
-        foreach ($this->specialArray as $key => $value) {
-            if (array_key_exists($key, $fields)) {
-                if (isset($value['type']) && $value['type'] == 'date') {
-                    $fields[$key] = vsprintf('%d/%d/%d', explode('/', $fields[$key]));
-                }
-            }
-        }
-        return $fields;
-    }
-
-    /**
-     * Prepares form data for comparison
-     *
-     * @param array $data
-     * @param array $sortFields [optional]
-     * @return array
-     */
-    protected function prepareFormData(array $data, array $sortFields = [])
-    {
-        foreach ($sortFields as $path) {
-            $data = $this->sortDataByPath($data, $path);
-        }
-
-        return $data;
-    }
-
-    /**
-     * Returns a string representation of the object
-     *
-     * @return string
-     */
-    public function toString()
-    {
-        return 'Form data equal the fixture data.';
-    }
+//    private function getMigrationProductEdit(MigrationProductEdit $migrationProductEdit)
+//    {
+//        $this->migrationProductEdit = $migrationProductEdit;
+//        return $this->migrationProductEdit;
+//    }
 }

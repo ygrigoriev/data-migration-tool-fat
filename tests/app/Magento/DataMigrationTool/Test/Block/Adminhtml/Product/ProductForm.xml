@@ -7,7 +7,7 @@
 -->
 <sections>
     <product-details>
-        <class>\Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\ProductDetails</class>
+        <class>\Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\ProductDetails</class>
         <selector>[data-index='product-details']</selector>
         <strategy>css selector</strategy>
         <wrapper>product</wrapper>
@@ -17,7 +17,7 @@
             </status>
             <attribute_set_id>
                 <selector>[data-index="attribute_set_id"]</selector>
-                <class>Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\ProductDetails\AttributeSet</class>
+                <class>Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\ProductDetails\AttributeSet</class>
             </attribute_set_id>
             <tax_class_id>
                 <input>select</input>
@@ -27,7 +27,7 @@
             </product_has_weight>
             <category_ids>
                 <selector>[data-index='container_category_ids']</selector>
-                <class>Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\ProductDetails\CategoryIds</class>
+                <class>Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\ProductDetails\CategoryIds</class>
             </category_ids>
             <quantity_and_stock_status composite="1">
                 <qty>
@@ -39,7 +39,7 @@
                 </is_in_stock>
             </quantity_and_stock_status>
             <custom_attribute>
-                <class>Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Attribute\CustomAttribute</class>
+                <class>Magento\Catalog\Test\Block\Adminhtml\Product\Attribute\CustomAttribute</class>
                 <selector>[data-index="%attribute_code%"]</selector>
             </custom_attribute>
             <visibility>
@@ -50,10 +50,11 @@
                 <selector>[name="product[news_to_date]"]</selector>
                 <strategy>css selector</strategy>
             </news_to_date>
+            <url_key/>
         </fields>
     </product-details>
     <advanced-pricing>
-        <class>Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\AdvancedPricing</class>
+        <class>Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\AdvancedPricing</class>
         <selector>[data-index="advanced_pricing_button"]</selector>
         <strategy>css selector</strategy>
         <wrapper>product</wrapper>
@@ -73,7 +74,7 @@
         </fields>
     </advanced-pricing>
     <advanced-inventory>
-        <class>Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\AdvancedInventory</class>
+        <class>Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\AdvancedInventory</class>
         <selector>[data-index="advanced_inventory_button"]</selector>
         <strategy>css selector</strategy>
         <wrapper>product[stock_data]</wrapper>
@@ -129,12 +130,12 @@
         </fields>
     </content>
     <attributes>
-        <class>\Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\Attributes</class>
+        <class>\Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\Attributes</class>
         <selector>[data-index="attributes"]</selector>
         <strategy>css selector</strategy>
         <fields>
             <custom_attribute>
-                <class>Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Attribute\CustomAttribute</class>
+                <class>Magento\Catalog\Test\Block\Adminhtml\Product\Attribute\CustomAttribute</class>
                 <selector>[data-index="%attribute_code%"]</selector>
             </custom_attribute>
         </fields>
@@ -144,15 +145,6 @@
         <selector>[data-index='block_gallery']</selector>
         <strategy>css selector</strategy>
     </gallery>
-    <search-engine-optimization>
-        <class>\Magento\Ui\Test\Block\Adminhtml\Section</class>
-        <selector>[data-index='search-engine-optimization']</selector>
-        <strategy>css selector</strategy>
-        <wrapper>product</wrapper>
-        <fields>
-            <url_key/>
-        </fields>
-    </search-engine-optimization>
     <related>
         <class>\Magento\Ui\Test\Block\Adminhtml\Section</class>
         <selector>[data-index='related']</selector>
@@ -166,7 +158,7 @@
         <fields>
             <website_ids>
                 <selector>.admin__fieldset-product-websites</selector>
-                <class>\Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\Websites\StoreTree</class>
+                <class>\Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\Websites\StoreTree</class>
             </website_ids>
         </fields>
     </websites>
@@ -181,7 +173,7 @@
         <strategy>css selector</strategy>
     </schedule-design-update>
     <customer-options>
-        <class>\Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\Options</class>
+        <class>\Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\Options</class>
         <selector>[data-index="custom_options"]</selector>
         <strategy>css selector</strategy>
         <fields>
@@ -195,7 +187,7 @@
                 <input>checkbox</input>
             </is_require>
             <type>
-                <class>\Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\Options\Type</class>
+                <class>\Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\Options\Type</class>
                 <selector>[data-index="type"]</selector>
                 <strategy>css selector</strategy>
             </type>
@@ -216,7 +208,7 @@
         </fields>
     </gift-options>
     <related>
-        <class>\Magento\DataMigrationTool\Test\Block\Adminhtml\Product\Edit\Section\Related</class>
+        <class>\Magento\Catalog\Test\Block\Adminhtml\Product\Edit\Section\Related</class>
         <selector>[data-index="related"]</selector>
         <strategy>css selector</strategy>
     </related>
