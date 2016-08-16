@@ -2,6 +2,11 @@
     "name": "magento/data-migration-tool-fat",
     "type": "library",
     "description": "Functional testing library for Magento Data Migration Tool",
+    "autoload": {
+        "psr-4": {
+            "Magento\\Mtf\\TestSuite\\": ["testsuites/Magento/Mtf/TestSuite"]
+        }
+    },
     "support": {
         "docs": "https://wiki.corp.magento.com/display/MAGE2/Functional+Tests+for+Data+Migration+Tool"
     }

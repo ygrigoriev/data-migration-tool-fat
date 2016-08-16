@@ -12,4 +12,6 @@ defined('MTF_BP') || define('MTF_BP', BP . '/dev/tests/functional');
 defined('MTF_TESTS_PATH') || define('MTF_TESTS_PATH', BP . '/dev/tests/functional/tests/app/');
 defined('MTF_STATES_PATH') || define('MTF_STATES_PATH', BP . '/dev/tests/functional/lib/Magento/Mtf/App/State/');
 
+defined('MTF_DMT_BP') || define('MTF_DMT_BP', __DIR__);
+
 require_once BP . '/dev/tests/functional/vendor/autoload.php';
