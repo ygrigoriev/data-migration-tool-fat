@@ -2,32 +2,6 @@
     "name": "magento/data-migration-tool-fat",
     "type": "library",
     "description": "Functional testing library for Magento Data Migration Tool",
-    "require": {
-        "php": "~5.6.0|7.0.2|~7.0.6",
-        "phpunit/phpunit": "4.1.0",
-        "phpunit/phpunit-selenium": ">=1.2"
-    },
-    "suggest": {
-        "netwing/selenium-server-standalone": "dev-master",
-        "facebook/webdriver": "dev-master"
-    },
-    "autoload": {
-        "psr-4": {
-            "Magento\\DataMigrationTool\\Test\\": ["tests/app/Magento/DataMigrationTool/Test"],
-            "Magento\\Mtf\\": ["/../../../dev/tests/functional/lib/Magento/Mtf", "/../../../dev/tests/functional/vendor/magento/mtf/Magento/Mtf", "/../../../dev/tests/functional/vendor/magento/mtf/testsuites/Magento/Mtf"],
-            "Magento\\": ["/../../../dev/tests/functional/generated/Magento", "/../../../dev/tests/functional/tests/app/Magento", "/../../../dev/tests/functional/vendor/magento/mtf/tests/app/Magento"],
-            "Test\\": "/../../../dev/tests/functional/generated/Test"
-        }
-    },
-    "scripts": {
-        "dmt-fat-link" : "DataMigrationTool\\Utils\\Linker::link",
-        "dmt-fat-generate" : "DataMigrationTool\\Utils\\Linker::generate",
-        "dmt-fat-dump": [
-            "@dmt-fat-link",
-            "@dmt-fat-generate"
-        ],
-        "post-package-install": "@dmt-fat-dump"
-    },
     "support": {
         "docs": "https://wiki.corp.magento.com/display/MAGE2/Functional+Tests+for+Data+Migration+Tool"
     }
