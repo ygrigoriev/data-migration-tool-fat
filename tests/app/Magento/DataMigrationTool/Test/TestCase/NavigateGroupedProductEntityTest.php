@@ -6,13 +6,13 @@
 namespace Magento\DataMigrationTool\Test\TestCase;
 
 use Magento\Mtf\TestCase\Injectable;
-use Magento\Catalog\Test\Fixture\CatalogProductSimple as Product;
+use Magento\GroupedProduct\Test\Fixture\GroupedProduct as Product;
 
 /**
  * @ZephyrId MAGETWO-57191
  * @group Migation_Tool_(FAT)
  */
-class NavigateSimpleProductEntityTest extends Injectable
+class NavigateGroupedProductEntityTest extends Injectable
 {
     /* tags */
     const TEST_TYPE = 'data_migration_tool';
