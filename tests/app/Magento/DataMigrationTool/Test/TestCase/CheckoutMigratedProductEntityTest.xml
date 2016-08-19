@@ -27,7 +27,7 @@
             <data name="customer/data/password" xsi:type="string">zena_rodriguez@example.com</data>
             <constraint name="Magento\Checkout\Test\Constraint\AssertOrderSuccessPlacedMessage"/>
             <constraint name="Magento\Sales\Test\Constraint\AssertOrderInOrdersGridOnFrontend"/>
-            <data name="tag" xsi:type="string">m1:ee-1.11.1.0</data>
+            <data name="tag" xsi:type="string">m1_version:ee-1.11.1.0</data>
         </variation>
     </testCase>
 </config>

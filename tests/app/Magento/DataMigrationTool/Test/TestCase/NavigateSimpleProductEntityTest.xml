@@ -17,7 +17,7 @@
             <constraint name="Magento\Catalog\Test\Constraint\AssertProductInStock" />
             <constraint name="Magento\Catalog\Test\Constraint\AssertProductInGrid" />
             <constraint name="Magento\Catalog\Test\Constraint\AssertProductForm" />
-            <data name="tag" xsi:type="string">m1:ee-1.11.1.0</data>
+            <data name="tag" xsi:type="string">m1_version:ee-1.11.1.0</data>
         </variation>
     </testCase>
 </config>
